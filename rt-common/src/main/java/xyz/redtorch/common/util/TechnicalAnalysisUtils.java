@@ -12,7 +12,7 @@ public class TechnicalAnalysisUtils {
 				continue;
 			}
 			Double sum = 0.0;
-			for (var j = 0; j < n; j++) {
+			for (int j = 0; j < n; j++) {
 				sum += valueList.get(i - j);
 			}
 			result.add(sum / n);

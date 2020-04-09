@@ -77,7 +77,7 @@ public class MasterTradeRtnRelayServiceImpl implements MasterTradeRtnRelayServic
 					try {
 						if (positionList.size() > 50 || (System.currentTimeMillis() - lastTimestamp > 200 && !positionList.isEmpty())) {
 
-							var operatorIdNodeIdSetMap = webSocketServerHandler.getOperatorIdNodeIdSetMap();
+							Map<String, Set<Integer>>  operatorIdNodeIdSetMap = webSocketServerHandler.getOperatorIdNodeIdSetMap();
 							synchronized (operatorIdNodeIdSetMap) {
 								for (Entry<String, Set<Integer>> entry : operatorIdNodeIdSetMap.entrySet()) {
 
@@ -145,7 +145,7 @@ public class MasterTradeRtnRelayServiceImpl implements MasterTradeRtnRelayServic
 					try {
 						if (accountList.size() > 50 || (System.currentTimeMillis() - lastTimestamp > 200 && !accountList.isEmpty())) {
 
-							var operatorIdNodeIdSetMap = webSocketServerHandler.getOperatorIdNodeIdSetMap();
+							Map<String, Set<Integer>>  operatorIdNodeIdSetMap = webSocketServerHandler.getOperatorIdNodeIdSetMap();
 							synchronized (operatorIdNodeIdSetMap) {
 								for (Entry<String, Set<Integer>> entry : operatorIdNodeIdSetMap.entrySet()) {
 
@@ -207,7 +207,7 @@ public class MasterTradeRtnRelayServiceImpl implements MasterTradeRtnRelayServic
 
 	@Override
 	public void onOrder(OrderField order) {
-		var operatorIdNodeIdSetMap = webSocketServerHandler.getOperatorIdNodeIdSetMap();
+		Map<String, Set<Integer>>  operatorIdNodeIdSetMap = webSocketServerHandler.getOperatorIdNodeIdSetMap();
 
 		synchronized (operatorIdNodeIdSetMap) {
 			for (Entry<String, Set<Integer>> entry : operatorIdNodeIdSetMap.entrySet()) {
@@ -243,7 +243,7 @@ public class MasterTradeRtnRelayServiceImpl implements MasterTradeRtnRelayServic
 
 	@Override
 	public void onTrade(TradeField trade) {
-		var operatorIdNodeIdSetMap = webSocketServerHandler.getOperatorIdNodeIdSetMap();
+		Map<String, Set<Integer>>  operatorIdNodeIdSetMap = webSocketServerHandler.getOperatorIdNodeIdSetMap();
 
 		synchronized (operatorIdNodeIdSetMap) {
 			for (Entry<String, Set<Integer>> entry : operatorIdNodeIdSetMap.entrySet()) {
@@ -366,7 +366,7 @@ public class MasterTradeRtnRelayServiceImpl implements MasterTradeRtnRelayServic
 
 	@Override
 	public void onNotice(NoticeField notice) {
-		var operatorIdNodeIdSetMap = webSocketServerHandler.getOperatorIdNodeIdSetMap();
+		Map<String, Set<Integer>>  operatorIdNodeIdSetMap = webSocketServerHandler.getOperatorIdNodeIdSetMap();
 
 		synchronized (operatorIdNodeIdSetMap) {
 			for (Entry<String, Set<Integer>> entry : operatorIdNodeIdSetMap.entrySet()) {
@@ -397,7 +397,7 @@ public class MasterTradeRtnRelayServiceImpl implements MasterTradeRtnRelayServic
 
 	@Override
 	public void onOrderList(List<OrderField> orderList) {
-		var operatorIdNodeIdSetMap = webSocketServerHandler.getOperatorIdNodeIdSetMap();
+		Map<String, Set<Integer>>  operatorIdNodeIdSetMap = webSocketServerHandler.getOperatorIdNodeIdSetMap();
 		synchronized (operatorIdNodeIdSetMap) {
 			for (Entry<String, Set<Integer>> entry : operatorIdNodeIdSetMap.entrySet()) {
 
@@ -442,7 +442,7 @@ public class MasterTradeRtnRelayServiceImpl implements MasterTradeRtnRelayServic
 
 	@Override
 	public void onTradeList(List<TradeField> tradeList) {
-		var operatorIdNodeIdSetMap = webSocketServerHandler.getOperatorIdNodeIdSetMap();
+		Map<String, Set<Integer>>  operatorIdNodeIdSetMap = webSocketServerHandler.getOperatorIdNodeIdSetMap();
 		synchronized (operatorIdNodeIdSetMap) {
 			for (Entry<String, Set<Integer>> entry : operatorIdNodeIdSetMap.entrySet()) {
 

@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 import org.springframework.boot.context.ApplicationPidFileWriter;
 import org.springframework.context.annotation.Import;
@@ -20,7 +21,7 @@ import org.springframework.context.annotation.Import;
 import xyz.redtorch.common.service.impl.FastEventServiceImpl;
 import xyz.redtorch.common.util.CommonUtils;
 
-@SpringBootApplication(exclude = { MongoAutoConfiguration.class, MongoDataAutoConfiguration.class })
+@SpringBootApplication(exclude = { MongoAutoConfiguration.class, MongoDataAutoConfiguration.class,DataSourceAutoConfiguration.class  })
 @Import({ FastEventServiceImpl.class })
 public class RtNodeSlaveApplication {
 

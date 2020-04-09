@@ -237,7 +237,8 @@ public class RtWebSocketClient {
 				try {
 					if (webSocketSession != null && webSocketSession.isOpen()) {
 						logger.info("PING服务器");
-						ByteBuffer byteBuffer = ByteBuffer.allocate(Long.BYTES).putLong(System.currentTimeMillis()).flip();
+						ByteBuffer byteBuffer=ByteBuffer.allocate(Long.BYTES).putLong(System.currentTimeMillis());
+						byteBuffer.flip();
 						PingMessage message = new PingMessage(byteBuffer);
 						webSocketSession.sendMessage(message);
 

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.redtorh</groupId>
+	<artifactId>rt</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Archetype - membership</name>
+	<url>http://maven.apache.org</url>
+	<packaging>pom</packaging>
+	<properties>
+
+		<springBootVersion>2.1.5.RELEASE</springBootVersion>
+		<springTestVersion>5.1.6.RELEASE</springTestVersion>
+		<disruptorVersion>3.4.2</disruptorVersion>
+		<chronicleQueueVersion>5.17.12</chronicleQueueVersion>
+		<mongoJavaDriverVersion>3.10.2</mongoJavaDriverVersion>
+		<lz4JavaVersion>1.7.0</lz4JavaVersion>
+		<fastjsonVersion>1.2.58</fastjsonVersion>
+		<commonsCodecVersion>1.12</commonsCodecVersion>
+		<commonsLang3Version>3.7</commonsLang3Version>
+		<commonsIOVersion>2.6</commonsIOVersion>
+		<slf4jApiVersion>1.7.26</slf4jApiVersion>
+		<logbackVersion>1.2.3</logbackVersion>
+		<commonsCsvVersion>1.7</commonsCsvVersion>
+	</properties>
+	<dependencies>
+			<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commonsLang3Version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>${mongoJavaDriverVersion}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>${commonsCodecVersion}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.lz4</groupId>
+			<artifactId>lz4-java</artifactId>
+			<version>${lz4JavaVersion}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjsonVersion}</version>
+
+		</dependency>
+		<dependency>
+			<groupId>com.lmax</groupId>
+			<artifactId>disruptor</artifactId>
+			<version>${disruptorVersion}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commonsIOVersion}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.protobuf-java-format</groupId>
+			<artifactId>protobuf-java-format</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.protobuf</groupId>
+			<artifactId>protobuf-java-util</artifactId>
+			<version>3.6.1</version>
+
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.protobuf</groupId>
+			<artifactId>protobuf-java</artifactId>
+			<version>3.6.1</version>
+
+		</dependency>
+	</dependencies>
+	<modules>
+		<module>rt-common</module>
+		<module>rt-pb</module>
+	</modules>
+
+</project>

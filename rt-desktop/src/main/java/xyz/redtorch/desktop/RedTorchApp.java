@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Import;
 
@@ -17,7 +18,7 @@ import xyz.redtorch.common.constant.CommonConstant;
 import xyz.redtorch.common.service.impl.FastEventServiceImpl;
 import xyz.redtorch.desktop.layout.base.MainLayout;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 @Import({ FastEventServiceImpl.class })
 public class RedTorchApp extends Application {
 

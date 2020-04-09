@@ -67,7 +67,8 @@ public class WebSocketServerHandler extends AbstractWebSocketHandler implements 
 
 						for (ThreadSafeWebSocketSession threadSafeWebSocketSession : sessionIdSessionMap.values()) {
 							if (threadSafeWebSocketSession.isOpen()) {
-								ByteBuffer byteBuffer = ByteBuffer.allocate(Long.BYTES).putLong(System.currentTimeMillis()).flip();
+								ByteBuffer byteBuffer = ByteBuffer.allocate(Long.BYTES).putLong(System.currentTimeMillis());
+								byteBuffer.flip();
 								PingMessage message = new PingMessage(byteBuffer);
 								threadSafeWebSocketSession.sendMessage(message);
 							}
@@ -146,9 +147,9 @@ public class WebSocketServerHandler extends AbstractWebSocketHandler implements 
 			executor.execute(new Runnable() {
 				@Override
 				public void run() {
-					var threadNodeId = nodeId;
+					Integer threadNodeId = nodeId;
 					logger.info("节点数据队列处理线程启动！节点ID:{}", threadNodeId);
-					var dataQueue = nodeIdDataQueueMap.get(threadNodeId);
+					LinkedBlockingQueue<byte[]> dataQueue = nodeIdDataQueueMap.get(threadNodeId);
 					while (true) {
 						try {
 							byte[] data = dataQueue.take();
@@ -251,7 +252,7 @@ public class WebSocketServerHandler extends AbstractWebSocketHandler implements 
 					operatorIdNodeIdSetMap.remove(operatorId);
 				}
 			}
-			var dataQueue = nodeIdDataQueueMap.remove(nodeId);
+			 LinkedBlockingQueue<byte[]> dataQueue = nodeIdDataQueueMap.remove(nodeId);
 			if (dataQueue != null) {
 				byte[] shutdownData = new byte[] { 0 };
 				dataQueue.put(shutdownData);
